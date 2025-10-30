@@ -22,12 +22,16 @@ impl FileOrFolder {
 
 #[derive(Debug, Clone)]
 pub struct File {
+    //TODO - figure out if there's any reason to keep this field around
+    #[allow(dead_code)]
     pub name: OsString,
     pub size: u128,
 }
 
 #[derive(Debug, Clone)]
 pub struct Folder {
+    //TODO - figure out if there's any reason to keep this field around
+    #[allow(dead_code)]
     pub name: OsString,
     pub contents: HashMap<OsString, FileOrFolder>,
     pub size: u128,
