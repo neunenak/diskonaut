@@ -2,8 +2,8 @@ use ::std::ffi::{OsStr, OsString};
 use ::std::fs::Metadata;
 use ::std::path::{Path, PathBuf};
 
-use crate::state::files::{FileOrFolder, Folder};
 use crate::state::FileToDelete;
+use crate::state::files::{FileOrFolder, Folder};
 
 pub struct FileTree {
     pub current_folder_names: Vec<OsString>,

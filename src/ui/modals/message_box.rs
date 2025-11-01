@@ -3,8 +3,8 @@ use ::tui::layout::Rect;
 use ::tui::style::{Color, Modifier, Style};
 use ::tui::widgets::Widget;
 
-use crate::state::tiles::FileType;
 use crate::state::FileToDelete;
+use crate::state::tiles::FileType;
 use crate::ui::format::truncate_middle;
 use crate::ui::grid::draw_filled_rect;
 

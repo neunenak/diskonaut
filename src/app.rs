@@ -4,12 +4,12 @@ use ::std::path::PathBuf;
 use ::std::sync::mpsc::{Receiver, SyncSender};
 use ::tui::backend::Backend;
 
-use crate::messages::{handle_instructions, Instruction};
+use crate::Event;
+use crate::messages::{Instruction, handle_instructions};
 use crate::state::files::{FileOrFolder, FileTree, Folder};
 use crate::state::tiles::Board;
 use crate::state::{FileToDelete, UiEffects};
 use crate::ui::Display;
-use crate::Event;
 
 #[derive(Clone)]
 pub enum UiMode {

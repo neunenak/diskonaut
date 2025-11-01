@@ -4,7 +4,7 @@ use ::tui::style::{Color, Modifier, Style};
 use ::unicode_width::UnicodeWidthStr;
 
 use crate::state::tiles::{FileType, Tile};
-use crate::ui::format::{truncate_middle, DisplaySize, DisplaySizeRounded};
+use crate::ui::format::{DisplaySize, DisplaySizeRounded, truncate_middle};
 use crate::ui::grid::{boundaries, draw_next_symbol};
 
 fn tile_first_line(tile: &Tile) -> String {

@@ -5,7 +5,7 @@ use ::tui::style::{Color, Modifier, Style};
 use ::tui::widgets::Widget;
 
 use crate::state::tiles::{FileType, Tile};
-use crate::ui::format::{truncate_middle, DisplaySize};
+use crate::ui::format::{DisplaySize, truncate_middle};
 
 fn render_currently_selected(buf: &mut Buffer, currently_selected: &Tile, max_len: u16, y: u16) {
     let file_name = currently_selected.name.to_string_lossy();
@@ -69,8 +69,10 @@ fn render_controls_legend(buf: &mut Buffer, hide_delete: bool, max_len: u16, y: 
         )
     } else {
         (
-            String::from("<arrows> - move around, <ENTER> - enter folder, <ESC> - parent folder, <BACKSPACE> - delete, <+/-/0> - zoom in/out/reset, <q> - quit"),
-            String::from("←↓↑→/<ENTER>/<ESC>: navigate, <BACKSPACE>: del")
+            String::from(
+                "<arrows> - move around, <ENTER> - enter folder, <ESC> - parent folder, <BACKSPACE> - delete, <+/-/0> - zoom in/out/reset, <q> - quit",
+            ),
+            String::from("←↓↑→/<ENTER>/<ESC>: navigate, <BACKSPACE>: del"),
         )
     };
     let too_small_line = "(...)";

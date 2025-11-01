@@ -15,10 +15,10 @@ use ::std::env;
 use ::std::io;
 use ::std::path::PathBuf;
 use ::std::process;
+use ::std::sync::Arc;
 use ::std::sync::atomic::{AtomicBool, Ordering};
 use ::std::sync::mpsc;
 use ::std::sync::mpsc::{Receiver, SyncSender};
-use ::std::sync::Arc;
 use ::std::thread::park_timeout;
 use ::std::{thread, time};
 use ::structopt::StructOpt;
@@ -31,7 +31,7 @@ use tui::backend::CrosstermBackend;
 
 use app::{App, UiMode};
 use input::TerminalEvents;
-use messages::{handle_events, Event, Instruction};
+use messages::{Event, Instruction, handle_events};
 
 #[cfg(not(test))]
 const SHOULD_SHOW_LOADING_ANIMATION: bool = true;

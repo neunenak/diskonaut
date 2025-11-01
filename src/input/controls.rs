@@ -1,10 +1,10 @@
 use ::tui::backend::Backend;
 use crossterm::event::Event;
 use crossterm::event::KeyModifiers;
-use crossterm::event::{read, KeyCode, KeyEvent};
+use crossterm::event::{KeyCode, KeyEvent, read};
 
-use crate::state::FileToDelete;
 use crate::App;
+use crate::state::FileToDelete;
 
 #[derive(Clone)]
 pub struct TerminalEvents;
