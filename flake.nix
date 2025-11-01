@@ -10,12 +10,13 @@
     flake-utils.lib.eachDefaultSystem (system:
       let
         pkgs = nixpkgs.legacyPackages.${system};
+        cargoToml = builtins.fromTOML (builtins.readFile ./Cargo.toml);
       in
       {
         packages = {
           default = pkgs.rustPlatform.buildRustPackage {
-            pname = "diskonaut";
-            version = "0.11.0";
+            pname = cargoToml.package.name;
+            version = cargoToml.package.version;
 
             src = ./.;
 
