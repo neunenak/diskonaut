@@ -22,4 +22,4 @@ nix = { version = "0.30.0", features = ["user"] }
 winapi = { version = "0.3", features = ["securitybaseapi","debugapi"] }
 
 [dev-dependencies]
-insta = "0.16.0"
+insta = "1.43"

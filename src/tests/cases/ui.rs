@@ -1,4 +1,3 @@
-use ::std::env;
 use ::std::fs::{File, create_dir, create_dir_all, remove_dir_all};
 use ::std::io::prelude::*;
 use ::std::iter;
@@ -52,7 +51,7 @@ const DELETE_CONFIRMATION_DISABLED: bool = true;
 fn create_root_temp_dir(name: &str) -> Result<PathBuf, failure::Error> {
     let mut dir = PathBuf::new();
     dir.push(String::from("/tmp/diskonaut_tests")); // TODO: fix this for other platforms
-    dir.push(name.to_string());
+    dir.push(name);
 
     remove_dir_all(&dir).ok(); // atomic remove
     create_dir_all(&dir)?;
