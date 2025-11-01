@@ -2,9 +2,18 @@
 
 All notable changes to this project will be documented in this file.
 
-The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
+The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/)
 
 ## [Unreleased]
+
+
+## [0.12.0] - 2025-11-01
+- This is the first update to diskonaut in a few years, under a new maintainer (Gregory Shuflin)
+
+### Changed
+- All dependencies updated to their latest versions as of November 2025
+- Rust edition updated to 2024
+- All existing compilation warnings suppressed or fixed
 
 ### Added
 * Only show "Small Files" legend when there are small files on screen (https://github.com/imsnif/diskonaut/pull/75) - [@pjsier](https://github.com/pjsier)

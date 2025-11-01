@@ -1,11 +1,11 @@
 [package]
 name = "diskonaut"
 description = "Terminal disk space visual navigator"
-version = "0.11.0"
-authors = ["Aram Drevekenin <aram@poor.dev>"]
+version = "0.12.0"
+authors = ["Aram Drevekenin <aram@poor.dev>", "Gregory Shuflin <greg@everydayimshuflin.com>"]
 readme = "README.md"
-homepage = "https://github.com/imsnif/diskonaut"
-repository = "https://github.com/imsnif/diskonaut"
+homepage = "https://code.everydayimshuflin.com/greg/diskonaut""
+repository = "https://code.everydayimshuflin.com/greg/diskonaut""
 license = "MIT"
 edition = "2024"
 
