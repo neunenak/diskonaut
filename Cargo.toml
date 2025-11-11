@@ -4,8 +4,8 @@ description = "Terminal disk space visual navigator"
 version = "0.12.0"
 authors = ["Aram Drevekenin <aram@poor.dev>", "Gregory Shuflin <greg@everydayimshuflin.com>"]
 readme = "README.md"
-homepage = "https://code.everydayimshuflin.com/greg/diskonaut""
-repository = "https://code.everydayimshuflin.com/greg/diskonaut""
+homepage = "https://code.everydayimshuflin.com/greg/diskonaut"
+repository = "https://code.everydayimshuflin.com/greg/diskonaut"
 license = "MIT"
 edition = "2024"
 
