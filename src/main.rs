@@ -9,7 +9,6 @@ mod state;
 mod ui;
 
 use ::clap::Parser;
-use ::failure;
 use ::jwalk::Parallelism::{RayonDefaultPool, Serial};
 use ::jwalk::WalkDir;
 use ::std::env;
@@ -69,7 +68,7 @@ fn get_stdout() -> io::Result<io::Stdout> {
     Ok(io::stdout())
 }
 
-fn try_main() -> Result<(), failure::Error> {
+fn try_main() -> Result<(), anyhow::Error> {
     let opts = Opt::parse();
 
     match get_stdout() {
@@ -82,7 +81,7 @@ fn try_main() -> Result<(), failure::Error> {
                 None => env::current_dir()?,
             };
             if !folder.as_path().is_dir() {
-                failure::bail!("Folder '{}' does not exist", folder.to_string_lossy())
+                anyhow::bail!("Folder '{}' does not exist", folder.to_string_lossy())
             }
             start(
                 terminal_backend,
@@ -92,7 +91,7 @@ fn try_main() -> Result<(), failure::Error> {
                 opts.disable_delete_confirmation,
             );
         }
-        Err(_) => failure::bail!("Failed to get stdout: are you trying to pipe 'diskonaut'?"),
+        Err(_) => anyhow::bail!("Failed to get stdout: are you trying to pipe 'diskonaut'?"),
     }
     disable_raw_mode()?;
     Ok(())

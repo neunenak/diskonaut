@@ -48,7 +48,7 @@ const SHOW_APPARENT_SIZE: bool = true;
 const DELETE_CONFIRMATION_ENABLED: bool = false;
 const DELETE_CONFIRMATION_DISABLED: bool = true;
 
-fn create_root_temp_dir(name: &str) -> Result<PathBuf, failure::Error> {
+fn create_root_temp_dir(name: &str) -> Result<PathBuf, anyhow::Error> {
     let mut dir = PathBuf::new();
     dir.push(String::from("/tmp/diskonaut_tests")); // TODO: fix this for other platforms
     dir.push(name);
@@ -58,7 +58,7 @@ fn create_root_temp_dir(name: &str) -> Result<PathBuf, failure::Error> {
     Ok(dir)
 }
 
-fn create_temp_file<P: AsRef<Path>>(path: P, size: usize) -> Result<(), failure::Error> {
+fn create_temp_file<P: AsRef<Path>>(path: P, size: usize) -> Result<(), anyhow::Error> {
     let mut file = File::create(path)?;
     let mut pos = 0;
     while pos < size {
