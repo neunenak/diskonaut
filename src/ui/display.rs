@@ -1,7 +1,7 @@
+use ::ratatui::Terminal;
+use ::ratatui::backend::Backend;
+use ::ratatui::layout::{Constraint, Direction, Layout, Size};
 use ::std::path::PathBuf;
-use ::tui::Terminal;
-use ::tui::backend::Backend;
-use ::tui::layout::{Constraint, Direction, Layout, Rect};
 
 use crate::UiMode;
 use crate::state::UiEffects;
@@ -35,7 +35,7 @@ where
         terminal.hide_cursor().expect("failed to hide cursor");
         Display { terminal }
     }
-    pub fn size(&self) -> Rect {
+    pub fn size(&self) -> Size {
         self.terminal.size().expect("could not get terminal size")
     }
     pub fn render(
@@ -47,7 +47,7 @@ where
     ) {
         self.terminal
             .draw(|f| {
-                let full_screen = f.size();
+                let full_screen = f.area();
                 let current_path = file_tree.get_current_path();
                 let current_path_size = file_tree.get_current_folder_size();
                 let current_path_descendants = file_tree.get_current_folder().num_descendants;
@@ -75,12 +75,14 @@ where
                         ]
                         .as_ref(),
                     )
-                    .split(full_screen);
+                    .split(full_screen)
+                    .to_vec();
 
                 // -1 cos we draw starting at offset 1 in both x and y directions
 
                 chunks[1].width -= 1;
                 chunks[1].height -= 1;
+
                 board.change_area(&chunks[1]);
                 match ui_mode {
                     UiMode::Loading => {
