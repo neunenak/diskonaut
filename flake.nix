@@ -20,7 +20,7 @@
 
             src = ./.;
 
-            cargoHash = "sha256-gDuvFFPBadeXvtOwOxHGMI3WlSZHcuLrQ5COAPKF9z4=";
+            cargoHash = "sha256-njPkTy9FiNS3E9ISBYqX4XzP/OMBkmKStf+w7ld1YXw=";
 
             # 1 passed; 44 failed on Darwin
             doCheck = !pkgs.stdenv.hostPlatform.isDarwin;
