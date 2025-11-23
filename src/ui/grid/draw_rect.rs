@@ -1,6 +1,6 @@
-use ::tui::buffer::Buffer;
-use ::tui::layout::Rect;
-use ::tui::style::{Color, Modifier, Style};
+use ::ratatui::buffer::Buffer;
+use ::ratatui::layout::Rect;
+use ::ratatui::style::{Color, Modifier, Style};
 use ::unicode_width::UnicodeWidthStr;
 
 use crate::state::tiles::{FileType, Tile};
@@ -125,7 +125,7 @@ pub fn draw_filled_rect(buf: &mut Buffer, fill_style: Style, rect: &Rect) {
     // fill
     for x in rect.x + 1..(rect.x + rect.width) {
         for y in rect.y + 1..(rect.y + rect.height) {
-            let cell = buf.get_mut(x, y);
+            let cell = &mut buf[(x, y)];
             cell.set_symbol(" ");
             cell.set_style(fill_style);
         }
@@ -134,24 +134,24 @@ pub fn draw_filled_rect(buf: &mut Buffer, fill_style: Style, rect: &Rect) {
     // top and bottom
     for x in rect.x..(rect.x + rect.width + 1) {
         if x == rect.x {
-            buf.get_mut(x, rect.y)
+            buf[(x, rect.y)]
                 .set_symbol(&boundaries::TOP_LEFT)
                 .set_style(fill_style);
-            buf.get_mut(x, rect.y + rect.height)
+            buf[(x, rect.y + rect.height)]
                 .set_symbol(&boundaries::BOTTOM_LEFT)
                 .set_style(fill_style);
         } else if x == rect.x + rect.width {
-            buf.get_mut(x, rect.y)
+            buf[(x, rect.y)]
                 .set_symbol(&boundaries::TOP_RIGHT)
                 .set_style(fill_style);
-            buf.get_mut(x, rect.y + rect.height)
+            buf[(x, rect.y + rect.height)]
                 .set_symbol(&boundaries::BOTTOM_RIGHT)
                 .set_style(fill_style);
         } else {
-            buf.get_mut(x, rect.y)
+            buf[(x, rect.y)]
                 .set_symbol(&boundaries::HORIZONTAL)
                 .set_style(fill_style);
-            buf.get_mut(x, rect.y + rect.height)
+            buf[(x, rect.y + rect.height)]
                 .set_symbol(&boundaries::HORIZONTAL)
                 .set_style(fill_style);
         }
@@ -159,10 +159,10 @@ pub fn draw_filled_rect(buf: &mut Buffer, fill_style: Style, rect: &Rect) {
 
     // left and right
     for y in (rect.y + 1)..(rect.y + rect.height) {
-        buf.get_mut(rect.x, y)
+        buf[(rect.x, y)]
             .set_symbol(&boundaries::VERTICAL)
             .set_style(fill_style);
-        buf.get_mut(rect.x + rect.width, y)
+        buf[(rect.x + rect.width, y)]
             .set_symbol(&boundaries::VERTICAL)
             .set_style(fill_style);
     }
@@ -182,9 +182,7 @@ pub fn draw_tile_text_on_grid(buf: &mut Buffer, tile: &Tile, selected: bool) {
     if let Some(background_style) = background_style {
         for x in tile.x + 1..tile.x + tile.width {
             for y in tile.y + 1..tile.y + tile.height {
-                buf.get_mut(x, y)
-                    .set_symbol("█")
-                    .set_style(background_style);
+                buf[(x, y)].set_symbol("█").set_style(background_style);
                 // we set both the filling symbol and the style
                 // because some terminals do not show this symbol on the one side
                 // and our tests need it in order to pass on the other side
