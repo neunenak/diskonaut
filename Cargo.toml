@@ -1,5 +1,5 @@
 [package]
-name = "diskonaut"
+name = "diskonaut-ng"
 description = "Terminal disk space visual navigator"
 version = "0.13.0"
 authors = ["Aram Drevekenin <aram@poor.dev>", "Gregory Shuflin <greg@everydayimshuflin.com>"]

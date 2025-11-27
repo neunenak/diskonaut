@@ -334,7 +334,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "diskonaut"
+name = "diskonaut-ng"
 version = "0.13.0"
 dependencies = [
  "anyhow",

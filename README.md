@@ -17,7 +17,7 @@ If you're using linux, you can check out the "releases" of this repository to do
 
 ### With cargo (linux / macOS / windows)
 ```
-cargo install diskonaut
+cargo install diskonaut-ng
 ```
 
 ### Fedora/CentOS
@@ -91,7 +91,7 @@ please do not hesitate to reach out to me personally: [greg@everydayimshuflin.co
 
 `diskonaut` was originally developed by Aram Drevekenin, `@imsnif` on Github.
 This version is a maintained fork created by Greg Shuflin, `@neunenak` on
-Github, in November 2025.
+Github, in November 2025, under the name `diskonaut-ng`.
 
 The original version of the crate is published at: <https://crates.io/crates/diskonaut>
 
