@@ -6,6 +6,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/)
 
 ## [Unreleased]
 
+## [0.13.0] - 2025-11-26
+- Incorporates several package updates, no feature changes
 
 ## [0.12.0] - 2025-11-01
 - This is the first update to diskonaut in a few years, under a new maintainer (Gregory Shuflin)
