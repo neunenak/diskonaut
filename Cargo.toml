@@ -1,13 +1,17 @@
 [package]
 name = "diskonaut-ng"
 description = "Terminal disk space visual navigator"
-version = "0.13.0"
+version = "0.13.1"
 authors = ["Aram Drevekenin <aram@poor.dev>", "Gregory Shuflin <greg@everydayimshuflin.com>"]
 readme = "README.md"
 homepage = "https://code.everydayimshuflin.com/greg/diskonaut"
 repository = "https://code.everydayimshuflin.com/greg/diskonaut"
 license = "MIT"
 edition = "2024"
+
+[[bin]]
+name = "diskonaut"
+path = "src/main.rs"
 
 [dependencies]
 ratatui = {version="0.29", default-features = false, features = ['crossterm'] }
