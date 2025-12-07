@@ -20,7 +20,7 @@
 
             src = ./.;
 
-            cargoHash = "sha256-C2pGyTef8IgF2FSBXRlLJCW3IgJ1d+2uxF6nelYF6AM=";
+            cargoLock.lockFile = ./Cargo.lock;
 
             # 1 passed; 44 failed on Darwin
             doCheck = !pkgs.stdenv.hostPlatform.isDarwin;
